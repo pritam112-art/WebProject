@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Booking Confirmed!</h2>
+<p>Thank you, {{ name }}. Your table has been booked for {{ guests }} guests on {{ date }} at {{ time }}.</p>
+<a href="{{ url_for('booking') }}">Book Another Table</a>
+{% endblock %}

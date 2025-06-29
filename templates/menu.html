@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Welcome Line with Stylish Font -->
+<div class="menu-welcome">
+    <h1>Welcome to O' Kareem Restaurant</h1>
+</div>
+
+{% set categories = {
+    'Break Fast': [
+        ('Puri-upma.jpeg', 'Puri Upma', 30),
+        ('Samoosa.jpeg', 'Samosa', 20)
+    ],
+    'Main Course': [
+        ('Chicken Biriyani.jpg', 'Chicken Biryani', 190),
+        ('veg biriyani.jpeg', 'Veg Biryani', 150),
+        ('Chicken Butter Masala.jpg', 'Chicken Butter Masala', 170),
+        ('Paneer Butter Masala.jpeg', 'Paneer Butter Masala', 160),
+        ('RIce Dal.jpeg', 'Rice Dal', 70),
+        ('dal Makhni.jpeg', 'Dal Makhni', 60)
+    ],
+    'Snacks': [
+        ('Burger.jpeg', 'Burger', 80),
+        ('French Fries.jpeg', 'French Fries', 40),
+        ('paneer tikka.jpeg', 'Paneer Tikka', 120),
+        ('Pizza.jpeg', 'Pizza', 170),
+        ('veg manchurian.jpeg', 'Veg Manchurian', 110)
+    ],
+    'Chapatis': [
+        ('Chapati.jpeg', 'Roti', 10),
+        ('Butter Naan.jpeg', 'Butter Naan', 25),
+        ('Paratha.jpeg', 'Paratha', 20)
+    ],
+    'Desert': [
+        ('Gulab Jamun.jpeg', 'Gulab Jamun', 50),
+        ('Ice Cream.jpeg', 'Ice Cream', 40)
+    ],
+    'Drinks': [
+        ('Cold Coffee.jpeg', 'Cold Coffee', 99),
+        ('Mojito.jpeg', 'Mojito', 99),
+        ('Masala Soda.jpeg', 'Masala Soda', 50)
+    ]
+} %}
+
+{% for category, items in categories.items() %}
+<section class="menu-section">
+    <h2>{{ category }}</h2>
+    <div class="dish-grid">
+        {% for img, name, price in items %}
+        <div class="dish-card">
+            <img src="{{ url_for('static', filename='images/' + img) }}" alt="{{ name }}">
+            <div class="dish-info">
+                <h3>{{ name }}</h3>
+                <p>₹{{ price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

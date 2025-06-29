@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O' Kareem Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="O' Kareem Logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="nav-left">
+            <ul>
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+                <li><a href="{{ url_for('menu') }}">MENU</a></li>
+                <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                <li><a href="{{ url_for('book_table') }}">BOOK TABLE</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="icons">
+                <a href="{{ url_for('login') }}"><i class="fa fa-user"></i></a>
+                <a href="{{ url_for('cart') }}"><i class="fa fa-shopping-cart"></i></a>
+                <a href="{{ url_for('search') }}"><i class="fa fa-search"></i></a>
+                <a href="{{ url_for('order_online') }}" class="nav-order-btn">Order Online</a>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
